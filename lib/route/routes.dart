@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:maxopen_task/features/main_view/main_view.dart';
 import 'package:maxopen_task/route/route_constants.dart';
-import 'package:maxopen_task/screen/home/home_screen.dart';
 
 class Routes {
   static Map<String, WidgetBuilder> getRoutes(
     RouteSettings setting,
   ) =>
       {
-        RouteList.initial: (context) => const HomeScreen(),
+        RouteList.initial: (context) => const MainView(),
         // RouteList.loginScreen: (context) => const LoginPage(),
         // RouteList.homeScreen: (context) => const HomeScreen(),
         // RouteList.summaryScreen: (context) => const SummaryScreen(),

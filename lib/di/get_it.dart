@@ -1,7 +1,21 @@
 import 'package:get_it/get_it.dart';
 import 'package:http/http.dart';
 import 'package:maxopen_task/application/loading/loading_cubit.dart';
-import 'package:maxopen_task/domain/core/api_client.dart';
+import 'package:maxopen_task/core/api_client.dart';
+import 'package:maxopen_task/features/genres/data/data_source/genres_remote_data_source_impl.dart';
+import 'package:maxopen_task/features/genres/data/repository/genres_repository_impl.dart';
+import 'package:maxopen_task/features/genres/domain/data_source/genres_remote_data_source.dart';
+import 'package:maxopen_task/features/genres/domain/repository/genres_repository.dart';
+import 'package:maxopen_task/features/home_screen/data/data_source/now_playing_remote_data_source_impl.dart';
+import 'package:maxopen_task/features/home_screen/data/data_source/top_five_remote_data_source_impl.dart';
+import 'package:maxopen_task/features/home_screen/data/repository/now_playing_repository_impl.dart';
+import 'package:maxopen_task/features/home_screen/data/repository/top_five_repository_impl.dart';
+import 'package:maxopen_task/features/home_screen/domain/data_source/now_playing_remote_data_source.dart';
+import 'package:maxopen_task/features/home_screen/domain/data_source/top_five_remote_data_source.dart';
+import 'package:maxopen_task/features/home_screen/domain/repository/now_playing_repository.dart';
+import 'package:maxopen_task/features/home_screen/domain/repository/top_five_repository.dart';
+import 'package:maxopen_task/features/home_screen/presentation/bloc/latest_cubit/latest_cubit.dart';
+import 'package:maxopen_task/features/home_screen/presentation/bloc/top_five/top_five_cubit.dart';
 import 'package:maxopen_task/infostructure/session_data_provider/local_storage_service.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -18,35 +32,25 @@ Future init() async {
   getIt.registerLazySingleton<Client>(() => Client());
   getIt.registerLazySingleton<ApiClient>(() => ApiClient(getIt()));
 
-  // getIt.registerLazySingleton<LoginRepo>(() => LoginRepoImpl(getIt()));
+  getIt.registerLazySingleton<TopFiveRepository>(
+      () => TopFiveRepositoryImpl(getIt()));
 
-  // getIt.registerLazySingleton<LoginRemoteDataSource>(
-  //     () => ImplLoginRemoteDataSource(getIt()));
+  getIt.registerLazySingleton<TopFiveRemoteDataSource>(
+      () => TopFiveRemoteDataSourceImpl(getIt()));
 
-  // getIt.registerFactory<LoaderCubit>(() => LoaderCubit(getIt(), getIt()));
+  getIt.registerFactory<TopFiveCubit>(() => TopFiveCubit(getIt()));
 
-  // getIt.registerLazySingleton<CheckAuthBloc>(() => CheckAuthBloc(getIt()));
+  getIt.registerLazySingleton<NowPlayingRepository>(
+      () => NowPlayingRepositoryImpl(getIt()));
 
-  // getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt(), getIt()));
+  getIt.registerLazySingleton<NowPlayingRemoteDataSource>(
+      () => NowPlayingRemoteDataSourceImpl(getIt()));
 
-  // getIt.registerLazySingleton<GetClientRepo>(() => GetClientRepoImpl(getIt()));
+  getIt.registerFactory<LatestCubit>(() => LatestCubit(getIt(), getIt()));
 
-  // getIt.registerLazySingleton<GetClientRemoteDataSource>(
-  //     () => ImplGetClientRemoteDataSource(getIt()));
+  getIt.registerLazySingleton<GenresRepository>(
+      () => GenresRepositoryImpl(getIt()));
 
-  // getIt.registerLazySingleton<ClientListCubit>(() => ClientListCubit(getIt()));
-
-  // getIt.registerLazySingleton<RequestRepo>(
-  //     () => RequestRepoImpl(getIt(), getIt()));
-
-  // getIt.registerLazySingleton<RequestRemoteDataSource>(
-  //     () => ImplRequestRemoteDataSource(getIt()));
-
-  // getIt.registerLazySingleton<AddRequestCubit>(
-  //     () => AddRequestCubit(getIt(), getIt()));
-
-  // getIt.registerFactory<RequestGetOrUpdateCubit>(
-  //     () => RequestGetOrUpdateCubit(getIt()));
-
-  // getIt.registerLazySingleton<PickerPhotoBloc>(() => PickerPhotoBloc());
+  getIt.registerLazySingleton<GenresRemoteDataSource>(
+      () => GenresRemoteDataSourceImpl(getIt()));
 }

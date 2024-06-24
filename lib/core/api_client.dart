@@ -5,7 +5,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:http/http.dart' as http;
 import 'package:maxopen_task/common/api_constant.dart';
-import 'package:maxopen_task/domain/core/exeption.dart';
+import 'package:maxopen_task/core/exeption.dart';
 import 'package:path_provider/path_provider.dart';
 
 class ApiClient {
@@ -21,7 +21,7 @@ class ApiClient {
       });
     }
 
-    return Uri.parse('${ApiConstants.BASE_URL}$path.php$paramsString');
+    return Uri.parse('${ApiConstants.BASE_URL}$path$paramsString');
   }
 
   dynamic post(String path,
@@ -110,6 +110,8 @@ class ApiClient {
       if (kDebugMode) {
         print('file cache');
       }
+      // final fullModel = json.decode(cacheFile.file.readAsStringSync());
+      // return fullModel['results'] as List;
 
       return json.decode(cacheFile.file.readAsStringSync());
     } else {
@@ -117,7 +119,7 @@ class ApiClient {
         _getPath(path, params),
         headers: {
           'Content-Type': 'application/json',
-          "Authorization": "Token $token"
+          "Authorization": "Bearer $token"
         },
       );
 
@@ -141,7 +143,8 @@ class ApiClient {
         }
         return json.decode(response.body);
       } else if (response.statusCode == 400) {
-        throw ServerException(erorr: json.decode(response.body));
+        throw ServerException(
+            erorr: json.decode(response.body)['results'] as List);
       } else {
         throw Exception(response.reasonPhrase);
       }

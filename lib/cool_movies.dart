@@ -2,10 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maxopen_task/application/loading/loading_cubit.dart';
 import 'package:maxopen_task/di/get_it.dart';
+import 'package:maxopen_task/features/home_screen/presentation/bloc/top_five/top_five_cubit.dart';
 import 'package:maxopen_task/route/fade_page_route_builder.dart';
 import 'package:maxopen_task/route/route_constants.dart';
 import 'package:maxopen_task/route/routes.dart';
 import 'package:maxopen_task/screen/error/error_screen.dart';
+import 'package:maxopen_task/features/home_screen/presentation/bloc/bottom_bar/bottom_bar_bloc.dart';
 import 'package:maxopen_task/screen/loading/loading_screen.dart';
 
 class CoolMovies extends StatelessWidget {
@@ -17,6 +19,12 @@ class CoolMovies extends StatelessWidget {
         BlocProvider<LoadingCubit>.value(
           value: getIt<LoadingCubit>(),
         ),
+        BlocProvider(
+          create: (context) => BottomBarBloc(),
+        ),
+        // BlocProvider(
+        //   create: (context) => getIt<TopFiveCubit>()..getTopFiveMovie(),
+        // ),
         // ),
         // BlocProvider<AddRequestCubit>(
         //   create: (context) => getIt<AddRequestCubit>(),
