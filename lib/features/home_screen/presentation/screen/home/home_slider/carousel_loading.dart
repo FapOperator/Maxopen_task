@@ -29,7 +29,8 @@ class _CarouselSliderDataFoundState extends State<CarouselSliderDataFound> {
             return Column(
               children: [
                 CarouselSlider.builder(
-                  itemCount: state.movieModel.length,
+                  itemCount:
+                      state.movieModel.length < 5 ? state.movieModel.length : 5,
                   itemBuilder: (context, index, realIndex) {
                     var item = state.movieModel[index];
                     var title = item.title;

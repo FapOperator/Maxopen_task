@@ -9,6 +9,7 @@ import 'package:maxopen_task/features/home_screen/domain/models/movies.dart';
 import 'package:maxopen_task/features/home_screen/presentation/bloc/genres_cubit/genres_cubit.dart';
 import 'package:maxopen_task/features/home_screen/presentation/screen/movie_detail/favourite/favourite_cubit.dart';
 import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
+import 'package:readmore/readmore.dart';
 
 class MovieDetailsScreen extends StatefulWidget {
   final Movie movie;
@@ -74,7 +75,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
 
   Positioned _buildMovieInformation(BuildContext context, Movie movie) {
     return Positioned(
-      bottom: 120,
+      top: MediaQuery.of(context).size.height / 2.3,
       width: MediaQuery.of(context).size.width,
       child: Padding(
         padding: const EdgeInsets.all(20.0),
@@ -109,7 +110,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                                 fontSize: 22,
                                 fontWeight: FontWeight.bold),
                           ),
-                          SizedBox(
+                          const SizedBox(
                             width: 5,
                           ),
                           RatingBar(
@@ -126,14 +127,13 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
                               empty: Image.asset(
                                   'assets/images/icons/star_empty.png'),
                             ),
-                            itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                            onRatingUpdate: (rating) {
-                              print(rating);
-                            },
+                            itemPadding:
+                                const EdgeInsets.symmetric(horizontal: 4.0),
+                            onRatingUpdate: (_) {},
                           ),
                         ],
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 10,
                       ),
                       Text(
@@ -151,13 +151,31 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
               },
             ),
             const SizedBox(height: 10),
-            const SizedBox(height: 20),
-            Text(movie.overview,
-                maxLines: 8,
-                style: const TextStyle(
-                  color: Color(0xFF888888),
-                  fontSize: 18,
-                )),
+            ReadMoreText(
+              movie.overview,
+              trimMode: TrimMode.Line,
+              trimLines: 5,
+              colorClickableText: Colors.pink,
+              trimCollapsedText: 'Read More',
+              trimExpandedText: 'Show less',
+              moreStyle: const TextStyle(
+                color: AppColor.assent,
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w700,
+              ),
+              lessStyle: const TextStyle(
+                color: AppColor.assent,
+                fontSize: 16,
+                fontFamily: 'Poppins',
+                fontWeight: FontWeight.w700,
+              ),
+              style: const TextStyle(
+                color: Color(0xFF888888),
+                fontSize: 16,
+                fontFamily: 'Poppins',
+              ),
+            ),
           ],
         ),
       ),

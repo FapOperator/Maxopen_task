@@ -17,7 +17,8 @@ class HomeLatest extends StatelessWidget {
           if (state is LatestLoaded) {
             return Expanded(
               child: ListView.builder(
-                itemCount: state.movieModel.length,
+                itemCount:
+                    state.movieModel.length < 6 ? state.movieModel.length : 6,
                 itemBuilder: (context, index) {
                   Movie singleMovie = state.movieModel[index];
                   return MovieCard(movie: singleMovie);
