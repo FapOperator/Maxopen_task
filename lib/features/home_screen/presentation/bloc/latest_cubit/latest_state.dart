@@ -9,11 +9,9 @@ class LatestLoading extends LatestState {}
 
 class LatestLoaded extends LatestState {
   final List<Movie> movieModel;
-  final List<GenresModel> genresModel;
 
   LatestLoaded({
     required this.movieModel,
-    required this.genresModel,
   });
 }
 

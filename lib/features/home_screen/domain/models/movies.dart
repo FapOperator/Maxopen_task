@@ -1,38 +1,35 @@
+// ignore_for_file: depend_on_referenced_packages
+
+import 'package:hive/hive.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part 'movies.g.dart';
 
 @JsonSerializable(fieldRename: FieldRename.snake)
+@HiveType(typeId: 0)
 class Movie {
+  @HiveField(2)
   final String? posterPath;
-  final bool adult;
+  @HiveField(3)
   final String overview;
-  final DateTime? releaseDate;
+  @HiveField(4)
   final List<int> genreIds;
+  @HiveField(0)
   final int id;
-  final String originalTitle;
-  final String originalLanguage;
+  @HiveField(1)
   final String title;
-  final String backdropPath;
-  final double popularity;
-  final int voteCount;
-  final bool video;
+  @HiveField(5)
+  final String? backdropPath;
+  @HiveField(6)
   final double voteAverage;
 
   Movie({
     required this.posterPath,
-    required this.adult,
     required this.overview,
-    required this.releaseDate,
     required this.genreIds,
     required this.id,
-    required this.originalTitle,
-    required this.originalLanguage,
     required this.title,
-    required this.backdropPath,
-    required this.popularity,
-    required this.voteCount,
-    required this.video,
+    this.backdropPath,
     required this.voteAverage,
   });
 

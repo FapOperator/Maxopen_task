@@ -8,3 +8,5 @@ class TabChange extends BottomBarEvent {
 
   TabChange({required this.tabIndex});
 }
+
+class TabPop extends BottomBarEvent {}

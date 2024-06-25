@@ -1,4 +1,4 @@
-import 'package:maxopen_task/common/api_constant.dart';
+import 'package:maxopen_task/core/common/api_constant.dart';
 import 'package:maxopen_task/core/api_client.dart';
 import 'package:maxopen_task/features/home_screen/domain/data_source/now_playing_remote_data_source.dart';
 import 'package:maxopen_task/features/home_screen/domain/models/movies.dart';
@@ -19,7 +19,6 @@ class NowPlayingRemoteDataSourceImpl implements NowPlayingRemoteDataSource {
     );
     List<Movie> result =
         List.from(response['results'].map((data) => Movie.fromJson(data)));
-    print(result);
     return result;
   }
 }

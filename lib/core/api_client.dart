@@ -4,7 +4,7 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter_cache_manager/flutter_cache_manager.dart';
 import 'package:http/http.dart' as http;
-import 'package:maxopen_task/common/api_constant.dart';
+import 'package:maxopen_task/core/common/api_constant.dart';
 import 'package:maxopen_task/core/exeption.dart';
 import 'package:path_provider/path_provider.dart';
 
@@ -14,10 +14,10 @@ class ApiClient {
   ApiClient(this._client);
 
   Uri _getPath(String path, Map<dynamic, dynamic>? params) {
-    var paramsString = '';
+    var paramsString = '?';
     if (params?.isNotEmpty ?? false) {
       params?.forEach((dynamic key, dynamic value) {
-        paramsString += '?$key=$value';
+        paramsString += '$key=$value&';
       });
     }
 
