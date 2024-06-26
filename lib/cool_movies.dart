@@ -5,8 +5,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:maxopen_task/core/di/get_it.dart';
+import 'package:maxopen_task/core/theme/app_theme.dart';
 import 'package:maxopen_task/features/home_screen/presentation/bloc/genres_cubit/genres_cubit.dart';
-import 'package:maxopen_task/core/theme/app_color.dart';
 import 'package:maxopen_task/l10n/all_locales.dart';
 import 'package:maxopen_task/route/fade_page_route_builder.dart';
 import 'package:maxopen_task/route/route_constants.dart';
@@ -30,12 +30,13 @@ class CoolMovies extends StatelessWidget {
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         title: 'Cool Movies',
-        theme: ThemeData(
-          primarySwatch: Colors.blue,
-          appBarTheme: const AppBarTheme(
-            iconTheme: IconThemeData(color: AppColor.white),
-          ),
-        ),
+        theme: AppTheme.dark,
+        // ThemeData(
+        //   primarySwatch: Colors.blue,
+        //   appBarTheme: const AppBarTheme(
+        //     iconTheme: IconThemeData(color: AppColor.white),
+        //   ),
+        // ),
         supportedLocales: AllLocale.all,
         locale: Locale(Platform.localeName.substring(0, 2)),
         localizationsDelegates: const [

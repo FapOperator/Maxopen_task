@@ -35,21 +35,14 @@ class CustomTitle extends StatelessWidget {
           child: RichText(
             text: TextSpan(
                 text: title,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontFamily: 'Poppins',
-                  fontWeight: FontWeight.bold,
-                ),
-                children: const <TextSpan>[
+                style: Theme.of(context).textTheme.titleLarge,
+                children: <TextSpan>[
                   TextSpan(
                     text: '.',
-                    style: TextStyle(
-                      color: AppColor.assent,
-                      fontSize: 30,
-                      fontFamily: 'Poppins',
-                      fontWeight: FontWeight.bold,
-                    ),
+                    style: Theme.of(context)
+                        .textTheme
+                        .titleLarge!
+                        .copyWith(color: AppColor.assent),
                   )
                 ]),
           ),

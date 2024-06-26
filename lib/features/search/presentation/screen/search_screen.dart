@@ -44,11 +44,7 @@ class SearchScreen extends StatelessWidget {
                       child: TextFormField(
                         controller: searchController,
                         cursorColor: AppColor.assent,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontFamily: 'Poppins',
-                          fontSize: 18,
-                        ),
+                        style: Theme.of(context).textTheme.labelLarge,
                         onTapOutside: ((event) {
                           FocusScope.of(context).unfocus();
                         }),
@@ -87,12 +83,12 @@ class SearchScreen extends StatelessWidget {
                             onPressed: () {},
                           ),
                           hintText: AppLocalizations.of(context)!.search,
-                          hintStyle: const TextStyle(
-                            color: Color.fromRGBO(255, 255, 255, 0.2),
-                            fontFamily: 'Poppins',
-                            fontSize: 18,
-                            fontWeight: FontWeight.w500,
-                          ),
+                          hintStyle: Theme.of(context)
+                              .textTheme
+                              .bodyMedium!
+                              .copyWith(
+                                color: const Color.fromRGBO(255, 255, 255, 0.2),
+                              ),
                           border: OutlineInputBorder(
                             borderRadius: BorderRadius.circular(10),
                           ),
@@ -119,12 +115,7 @@ class SearchScreen extends StatelessWidget {
                                 ),
                                 child: Text(
                                   '${AppLocalizations.of(context)!.searchResult} (${state.movie.length})',
-                                  style: const TextStyle(
-                                    fontFamily: 'Poppins',
-                                    color: AppColor.white,
-                                    fontWeight: FontWeight.w500,
-                                    fontSize: 18,
-                                  ),
+                                  style: Theme.of(context).textTheme.bodyMedium,
                                 ),
                               ),
                               Expanded(
@@ -139,7 +130,7 @@ class SearchScreen extends StatelessWidget {
                           ),
                         );
                       }
-                      return const Text('empty');
+                      return Container();
                     },
                   )
                 ],

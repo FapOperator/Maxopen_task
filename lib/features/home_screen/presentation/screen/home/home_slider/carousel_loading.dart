@@ -69,20 +69,15 @@ class CarouselSliderDataFound extends StatelessWidget {
                               padding: const EdgeInsets.only(top: 12.0),
                               child: Text(
                                 title,
-                                style: const TextStyle(
-                                    color: Colors.white,
-                                    fontSize: 20,
-                                    fontWeight: FontWeight.bold),
+                                style: Theme.of(context).textTheme.titleMedium,
                               ),
                             ),
                             Row(
                               children: [
                                 Text(
                                   voteAverage,
-                                  style: const TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold),
+                                  style:
+                                      Theme.of(context).textTheme.titleMedium,
                                 ),
                                 RatingBar(
                                   itemSize: 20,

@@ -86,11 +86,7 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
           children: [
             Text(
               movie.title,
-              style: const TextStyle(
-                color: Colors.white,
-                fontSize: 20,
-                fontWeight: FontWeight.bold,
-              ),
+              style: Theme.of(context).textTheme.titleMedium,
             ),
             const SizedBox(height: 10),
             BlocBuilder<GenresCubit, GenresState>(
@@ -160,23 +156,15 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
               colorClickableText: Colors.pink,
               trimCollapsedText: AppLocalizations.of(context)!.readMore,
               trimExpandedText: AppLocalizations.of(context)!.showLess,
-              moreStyle: const TextStyle(
-                color: AppColor.assent,
-                fontSize: 16,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w700,
-              ),
-              lessStyle: const TextStyle(
-                color: AppColor.assent,
-                fontSize: 16,
-                fontFamily: 'Poppins',
-                fontWeight: FontWeight.w700,
-              ),
-              style: const TextStyle(
-                color: Color(0xFF888888),
-                fontSize: 16,
-                fontFamily: 'Poppins',
-              ),
+              moreStyle: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: AppColor.assent),
+              lessStyle: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: AppColor.assent),
+              style: Theme.of(context).textTheme.bodyMedium,
             ),
           ],
         ),
