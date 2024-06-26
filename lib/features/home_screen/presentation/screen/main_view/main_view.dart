@@ -4,7 +4,7 @@ import 'package:maxopen_task/features/bookmarks/screen/bookmarks_screen.dart';
 import 'package:maxopen_task/features/home_screen/presentation/bloc/bottom_bar/bottom_bar_bloc.dart';
 import 'package:maxopen_task/features/home_screen/presentation/screen/home/home_screen.dart';
 import 'package:maxopen_task/features/search/presentation/screen/search_screen.dart';
-import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
+import 'package:maxopen_task/core/theme/app_color.dart';
 
 class MainView extends StatefulWidget {
   const MainView({super.key});

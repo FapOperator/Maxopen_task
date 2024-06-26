@@ -21,9 +21,9 @@ class FavouriteManager {
     final movieBox = await Hive.openBox('movieBox');
     final movieIds = movieBox.keys;
     List<Movie> movies = [];
-    movieIds.forEach((movieId) {
+    for (var movieId in movieIds) {
       movies.add(movieBox.get(movieId));
-    });
+    }
     return movies;
   }
 }

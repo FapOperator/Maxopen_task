@@ -43,14 +43,12 @@ class MovieRatingGenres extends StatelessWidget {
                       half: Image.asset('assets/images/icons/star_half.png'),
                       empty: Image.asset('assets/images/icons/star_empty.png'),
                     ),
-                    itemPadding: EdgeInsets.symmetric(horizontal: 4.0),
-                    onRatingUpdate: (rating) {
-                      print(rating);
-                    },
+                    itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                    onRatingUpdate: (_) {},
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 10,
               ),
               Text(

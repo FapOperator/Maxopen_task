@@ -13,8 +13,4 @@ class GenresLoaded extends GenresState {
   GenresLoaded({required this.genresModel});
 }
 
-class LatestError extends GenresState {
-  // final ErrorModel error;
-
-  // ClientListError({required this.error});
-}
+class LatestError extends GenresState {}

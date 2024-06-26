@@ -9,16 +9,8 @@ import 'package:maxopen_task/core/di/get_it.dart';
 import 'package:maxopen_task/features/home_screen/presentation/bloc/top_five/top_five_cubit.dart';
 import 'package:maxopen_task/route/route_constants.dart';
 
-class CarouselSliderDataFound extends StatefulWidget {
+class CarouselSliderDataFound extends StatelessWidget {
   const CarouselSliderDataFound({super.key});
-
-  @override
-  _CarouselSliderDataFoundState createState() =>
-      _CarouselSliderDataFoundState();
-}
-
-class _CarouselSliderDataFoundState extends State<CarouselSliderDataFound> {
-  // int _current = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -36,7 +28,6 @@ class _CarouselSliderDataFoundState extends State<CarouselSliderDataFound> {
                   itemBuilder: (context, index, realIndex) {
                     var item = state.movieModel[index];
                     var title = item.title;
-                    // var route = item.route;
                     var imageUrl = item.posterPath;
                     String voteAverage =
                         (item.voteAverage / 2).toStringAsFixed(1);
@@ -108,11 +99,9 @@ class _CarouselSliderDataFoundState extends State<CarouselSliderDataFound> {
                                     empty: Image.asset(
                                         'assets/images/icons/star_empty.png'),
                                   ),
-                                  itemPadding:
-                                      EdgeInsets.symmetric(horizontal: 4.0),
-                                  onRatingUpdate: (rating) {
-                                    print(rating);
-                                  },
+                                  itemPadding: const EdgeInsets.symmetric(
+                                      horizontal: 4.0),
+                                  onRatingUpdate: (_) {},
                                 ),
                               ],
                             ),
@@ -126,13 +115,8 @@ class _CarouselSliderDataFoundState extends State<CarouselSliderDataFound> {
                       enlargeCenterPage: false,
                       aspectRatio: 16 / 11,
                       viewportFraction: 1,
-                      // enlargeFactor: 0.2,
                       disableCenter: true,
-                      onPageChanged: (index, reason) {
-                        // setState(() {
-                        //   _current = index;
-                        // });
-                      }),
+                      onPageChanged: (index, reason) {}),
                 ),
               ],
             );

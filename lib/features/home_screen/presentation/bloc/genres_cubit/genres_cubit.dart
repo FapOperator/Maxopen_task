@@ -10,7 +10,6 @@ class GenresCubit extends Cubit<GenresState> {
   GenresCubit(this._genresRepository) : super(GenresInitial());
 
   Future<void> getGenres(String locale) async {
-    // emit(ClientListLoading());
     List<GenresModel> result = await _genresRepository.getGenres(locale);
     emit(GenresLoaded(genresModel: result));
   }

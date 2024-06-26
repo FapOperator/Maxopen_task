@@ -9,10 +9,6 @@ class Routes {
   ) =>
       {
         RouteList.initial: (context) => const MainView(),
-        // RouteList.homeScreen: (context) => const HomeScreen(),
-        // RouteList.summaryScreen: (context) => const SummaryScreen(),
-        // RouteList.requestListScreen: (context) =>
-        //     RequestListScreen(isForcedRequest: setting.arguments as bool?),
         RouteList.movieDetails: (context) {
           if (setting.arguments != null) {
             final args = setting.arguments as Map<String, dynamic>;

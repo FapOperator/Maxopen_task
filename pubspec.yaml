@@ -37,7 +37,6 @@ dependencies:
   bloc: ^8.1.4
   flutter_bloc: ^8.1.6
   get_it: ^7.7.0
-  shared_preferences: ^2.2.3
   hive: ^2.2.3
   http: ^1.2.1
   flutter_cache_manager: ^3.3.2

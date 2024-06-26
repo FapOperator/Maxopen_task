@@ -10,7 +10,6 @@ class SearchCubit extends Cubit<SearchState> {
   SearchCubit(this._searchRepository) : super(SearchInitial());
 
   Future<void> searchMovie(String query, String locale) async {
-    // emit(ClientListLoading());
     List<Movie> result = await _searchRepository.getSearchMovies(query, locale);
     emit(SearchLoaded(movie: result));
   }

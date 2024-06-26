@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maxopen_task/features/home_screen/presentation/bloc/bottom_bar/bottom_bar_bloc.dart';
-import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
+import 'package:maxopen_task/core/theme/app_color.dart';
 
 class CustomTitle extends StatelessWidget {
   final String title;

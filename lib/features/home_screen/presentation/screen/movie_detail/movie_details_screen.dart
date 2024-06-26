@@ -8,7 +8,7 @@ import 'package:maxopen_task/features/genres/common/genres_function.dart';
 import 'package:maxopen_task/features/home_screen/domain/models/movies.dart';
 import 'package:maxopen_task/features/home_screen/presentation/bloc/genres_cubit/genres_cubit.dart';
 import 'package:maxopen_task/features/home_screen/presentation/screen/movie_detail/favourite/favourite_cubit.dart';
-import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
+import 'package:maxopen_task/core/theme/app_color.dart';
 import 'package:readmore/readmore.dart';
 
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';

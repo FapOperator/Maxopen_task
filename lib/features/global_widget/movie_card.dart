@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:maxopen_task/core/common/api_constant.dart';
 import 'package:maxopen_task/features/home_screen/domain/models/movies.dart';
-import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
+import 'package:maxopen_task/core/theme/app_color.dart';
 import 'package:maxopen_task/features/home_screen/presentation/widgets/movie_rating_genres.dart';
 import 'package:maxopen_task/route/route_constants.dart';
 
@@ -62,7 +62,7 @@ class MovieCard extends StatelessWidget {
                   ),
                 ),
                 MovieRatingGenres(movie: movie),
-                SizedBox(
+                const SizedBox(
                   height: 10,
                 ),
                 Text(

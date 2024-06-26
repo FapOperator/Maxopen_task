@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:maxopen_task/features/home_screen/domain/models/movies.dart';
@@ -16,7 +14,6 @@ class LatestCubit extends Cubit<LatestState> {
   ) : super(LatestInitial());
 
   Future<void> getTopFiveMovie(String locale) async {
-    print(locale);
     List<Movie> result =
         await _nowPlayingRepository.getNowPlayingMovies(locale);
     emit(LatestLoaded(

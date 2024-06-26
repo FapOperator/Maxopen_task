@@ -3,7 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:maxopen_task/core/common/conver_locale_string.dart';
 import 'package:maxopen_task/core/di/get_it.dart';
 import 'package:maxopen_task/features/global_widget/movie_card.dart';
-import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
+import 'package:maxopen_task/core/theme/app_color.dart';
 import 'package:maxopen_task/features/home_screen/presentation/widgets/custom_title.dart';
 import 'package:maxopen_task/features/search/presentation/bloc/search_cubit/search_cubit.dart';
 

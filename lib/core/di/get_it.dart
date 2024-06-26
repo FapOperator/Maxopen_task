@@ -27,12 +27,6 @@ import 'package:maxopen_task/features/search/presentation/bloc/search_cubit/sear
 final getIt = GetIt.I;
 
 Future init() async {
-  // getIt.registerLazySingleton<SessionDataProvider>(() => SessionDataProvider());
-  // getIt.registerSingletonAsync<FavouriteManager>(() async {
-  //   final pref = await SharedPreferences.getInstance();
-  //   return FavouriteManager(pref);
-  // }, signalsReady: false);
-  // await getIt.getAsync<FavouriteManager>();
   getIt.registerLazySingleton<FavouriteManager>(() => FavouriteManager());
   getIt.registerLazySingleton<Client>(() => Client());
   getIt.registerLazySingleton<ApiClient>(() => ApiClient(getIt()));

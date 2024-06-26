@@ -15,8 +15,4 @@ class LatestLoaded extends LatestState {
   });
 }
 
-class LatestError extends LatestState {
-  // final ErrorModel error;
-
-  // ClientListError({required this.error});
-}
+class LatestError extends LatestState {}

@@ -13,8 +13,4 @@ class TopFiveLoaded extends TopFiveState {
   TopFiveLoaded({required this.movieModel});
 }
 
-class TopFiveError extends TopFiveState {
-  // final ErrorModel error;
-
-  // ClientListError({required this.error});
-}
+class TopFiveError extends TopFiveState {}
