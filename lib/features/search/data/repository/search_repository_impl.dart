@@ -8,9 +8,10 @@ class SearchRepositoryImpl implements SearchRepository {
 
   SearchRepositoryImpl(this._searchRemoteDataSource);
   @override
-  Future<List<Movie>> getSearchMovies(String query) async {
+  Future<List<Movie>> getSearchMovies(String query, String locale) async {
     try {
-      final resultClient = await _searchRemoteDataSource.getSearchMovies(query);
+      final resultClient =
+          await _searchRemoteDataSource.getSearchMovies(query, locale);
       return resultClient;
     } on ServerException catch (error) {
       throw Exception(error);

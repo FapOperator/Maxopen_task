@@ -6,6 +6,8 @@ import 'package:maxopen_task/features/home_screen/presentation/screen/movie_deta
 import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
 import 'package:maxopen_task/features/home_screen/presentation/widgets/custom_title.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class BookmarksScreen extends StatefulWidget {
   const BookmarksScreen({super.key});
 
@@ -34,8 +36,8 @@ class _BookmarksScreenState extends State<BookmarksScreen> {
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
               children: [
-                const CustomTitle(
-                  title: 'Bookmarks',
+                CustomTitle(
+                  title: AppLocalizations.of(context)!.bookmarks,
                   isGoBack: true,
                 ),
                 BlocBuilder<FavouriteCubit, FavouriteState>(

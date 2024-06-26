@@ -8,9 +8,9 @@ class GenresRepositoryImpl implements GenresRepository {
 
   GenresRepositoryImpl(this._genresRemoteDataSource);
   @override
-  Future<List<GenresModel>> getGenres() async {
+  Future<List<GenresModel>> getGenres(String locale) async {
     try {
-      final resultClient = await _genresRemoteDataSource.getGenres();
+      final resultClient = await _genresRemoteDataSource.getGenres(locale);
       return resultClient;
     } on ServerException catch (error) {
       throw Exception(error);

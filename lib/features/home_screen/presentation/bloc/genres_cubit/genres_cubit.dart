@@ -9,9 +9,9 @@ class GenresCubit extends Cubit<GenresState> {
   final GenresRepository _genresRepository;
   GenresCubit(this._genresRepository) : super(GenresInitial());
 
-  Future<void> getGenres() async {
+  Future<void> getGenres(String locale) async {
     // emit(ClientListLoading());
-    List<GenresModel> result = await _genresRepository.getGenres();
+    List<GenresModel> result = await _genresRepository.getGenres(locale);
     emit(GenresLoaded(genresModel: result));
   }
 }

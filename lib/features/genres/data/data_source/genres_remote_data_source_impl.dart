@@ -9,12 +9,12 @@ class GenresRemoteDataSourceImpl implements GenresRemoteDataSource {
   GenresRemoteDataSourceImpl(this._client);
 
   @override
-  Future<List<GenresModel>> getGenres() async {
+  Future<List<GenresModel>> getGenres(String locale) async {
     final response = await _client.getWithCache(
       '/3/genre/movie/list',
       cacheTime: 3600,
       nameFileCache: 'genresList',
-      params: {'language': 'en-US'},
+      params: {'language': locale.substring(0, 2)},
       token: ApiConstants.API_TOKEN,
     );
     List<GenresModel> result =

@@ -11,6 +11,8 @@ import 'package:maxopen_task/features/home_screen/presentation/screen/movie_deta
 import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
 import 'package:readmore/readmore.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class MovieDetailsScreen extends StatefulWidget {
   final Movie movie;
   const MovieDetailsScreen({
@@ -156,8 +158,8 @@ class _MovieDetailsScreenState extends State<MovieDetailsScreen> {
               trimMode: TrimMode.Line,
               trimLines: 5,
               colorClickableText: Colors.pink,
-              trimCollapsedText: 'Read More',
-              trimExpandedText: 'Show less',
+              trimCollapsedText: AppLocalizations.of(context)!.readMore,
+              trimExpandedText: AppLocalizations.of(context)!.showLess,
               moreStyle: const TextStyle(
                 color: AppColor.assent,
                 fontSize: 16,

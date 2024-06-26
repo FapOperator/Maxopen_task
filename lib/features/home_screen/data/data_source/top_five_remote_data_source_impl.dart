@@ -9,12 +9,12 @@ class TopFiveRemoteDataSourceImpl implements TopFiveRemoteDataSource {
   TopFiveRemoteDataSourceImpl(this._client);
 
   @override
-  Future<List<Movie>> getTopFiveMovies() async {
+  Future<List<Movie>> getTopFiveMovies(String locale) async {
     final response = await _client.getWithCache(
       '/3/movie/popular',
       cacheTime: 3600,
       nameFileCache: 'topFive',
-      params: {'language': 'en-US'},
+      params: {'language': locale},
       token: ApiConstants.API_TOKEN,
     );
     List<Movie> result =

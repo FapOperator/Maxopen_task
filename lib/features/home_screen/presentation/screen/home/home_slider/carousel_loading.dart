@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:maxopen_task/core/common/api_constant.dart';
+import 'package:maxopen_task/core/common/conver_locale_string.dart';
 import 'package:maxopen_task/core/di/get_it.dart';
 import 'package:maxopen_task/features/home_screen/presentation/bloc/top_five/top_five_cubit.dart';
 import 'package:maxopen_task/route/route_constants.dart';
@@ -21,8 +22,9 @@ class _CarouselSliderDataFoundState extends State<CarouselSliderDataFound> {
 
   @override
   Widget build(BuildContext context) {
+    String locale = convertLocaleString(context);
     return BlocProvider(
-      create: (context) => getIt<TopFiveCubit>()..getTopFiveMovie(),
+      create: (context) => getIt<TopFiveCubit>()..getTopFiveMovie(locale),
       child: BlocBuilder<TopFiveCubit, TopFiveState>(
         builder: (context, state) {
           if (state is TopFiveLoaded) {

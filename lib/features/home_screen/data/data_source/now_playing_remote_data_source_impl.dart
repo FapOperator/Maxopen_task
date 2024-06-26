@@ -9,16 +9,17 @@ class NowPlayingRemoteDataSourceImpl implements NowPlayingRemoteDataSource {
   NowPlayingRemoteDataSourceImpl(this._client);
 
   @override
-  Future<List<Movie>> getNowPlayingMovies() async {
+  Future<List<Movie>> getNowPlayingMovies(String locale) async {
     final response = await _client.getWithCache(
       '/3/movie/popular',
       cacheTime: 3600,
       nameFileCache: 'topFive',
-      params: {'language': 'en-US'},
+      params: {'language': locale},
       token: ApiConstants.API_TOKEN,
     );
     List<Movie> result =
         List.from(response['results'].map((data) => Movie.fromJson(data)));
+
     return result;
   }
 }

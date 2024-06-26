@@ -8,9 +8,10 @@ class TopFiveRepositoryImpl implements TopFiveRepository {
 
   TopFiveRepositoryImpl(this._topFiveRemoteDataSource);
   @override
-  Future<List<Movie>> getTopFiveMovies() async {
+  Future<List<Movie>> getTopFiveMovies(String locale) async {
     try {
-      final resultClient = await _topFiveRemoteDataSource.getTopFiveMovies();
+      final resultClient =
+          await _topFiveRemoteDataSource.getTopFiveMovies(locale);
       return resultClient;
     } on ServerException catch (error) {
       throw Exception(error);

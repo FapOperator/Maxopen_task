@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:maxopen_task/core/common/conver_locale_string.dart';
 import 'package:maxopen_task/core/di/get_it.dart';
 import 'package:maxopen_task/features/global_widget/movie_card.dart';
 import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
 import 'package:maxopen_task/features/home_screen/presentation/widgets/custom_title.dart';
 import 'package:maxopen_task/features/search/presentation/bloc/search_cubit/search_cubit.dart';
+
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SearchScreen extends StatelessWidget {
   const SearchScreen({super.key});
@@ -13,6 +16,7 @@ class SearchScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final formKey = GlobalKey<FormState>();
     TextEditingController searchController = TextEditingController();
+    String locale = convertLocaleString(context);
     return Scaffold(
       backgroundColor: AppColor.background,
       body: BlocProvider(
@@ -23,8 +27,8 @@ class SearchScreen extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 16.0),
               child: Column(
                 children: [
-                  const CustomTitle(
-                    title: 'Search',
+                  CustomTitle(
+                    title: AppLocalizations.of(context)!.search,
                     isGoBack: true,
                   ),
                   FocusScope(
@@ -32,7 +36,7 @@ class SearchScreen extends StatelessWidget {
                       if (!value) {
                         context
                             .read<SearchCubit>()
-                            .searchMovie(searchController.text);
+                            .searchMovie(searchController.text, locale);
                       }
                     },
                     child: Form(
@@ -52,14 +56,14 @@ class SearchScreen extends StatelessWidget {
                           if (formKey.currentState!.validate()) {
                             context
                                 .read<SearchCubit>()
-                                .searchMovie(searchController.text);
+                                .searchMovie(searchController.text, locale);
                           }
                         },
                         onEditingComplete: () {
                           if (formKey.currentState!.validate()) {
                             context
                                 .read<SearchCubit>()
-                                .searchMovie(searchController.text);
+                                .searchMovie(searchController.text, locale);
                           }
                           FocusScope.of(context).unfocus();
                         },
@@ -82,7 +86,7 @@ class SearchScreen extends StatelessWidget {
                             ),
                             onPressed: () {},
                           ),
-                          hintText: 'Search',
+                          hintText: AppLocalizations.of(context)!.search,
                           hintStyle: const TextStyle(
                             color: Color.fromRGBO(255, 255, 255, 0.2),
                             fontFamily: 'Poppins',
@@ -114,7 +118,7 @@ class SearchScreen extends StatelessWidget {
                                   bottom: 15,
                                 ),
                                 child: Text(
-                                  'Search result (${state.movie.length})',
+                                  '${AppLocalizations.of(context)!.searchResult} (${state.movie.length})',
                                   style: const TextStyle(
                                     fontFamily: 'Poppins',
                                     color: AppColor.white,

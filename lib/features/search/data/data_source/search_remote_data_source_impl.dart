@@ -9,13 +9,13 @@ class SearchRemoteDataSourceImpl implements SearchRemoteDataSource {
   SearchRemoteDataSourceImpl(this._client);
 
   @override
-  Future<List<Movie>> getSearchMovies(String query) async {
+  Future<List<Movie>> getSearchMovies(String query, String locale) async {
     final response = await _client.getWithCache(
       '/3/search/movie',
       cacheTime: 3600,
       nameFileCache: 'search',
       params: {
-        'language': 'en-US',
+        'language': locale,
         'query': query,
       },
       token: ApiConstants.API_TOKEN,

@@ -9,9 +9,9 @@ class TopFiveCubit extends Cubit<TopFiveState> {
   final TopFiveRepository _topFiveRepository;
   TopFiveCubit(this._topFiveRepository) : super(TopFiveInitial());
 
-  Future<void> getTopFiveMovie() async {
+  Future<void> getTopFiveMovie(String locale) async {
     // emit(ClientListLoading());
-    List<Movie> result = await _topFiveRepository.getTopFiveMovies();
+    List<Movie> result = await _topFiveRepository.getTopFiveMovies(locale);
     emit(TopFiveLoaded(movieModel: result));
   }
 }

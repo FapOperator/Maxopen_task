@@ -4,6 +4,8 @@ import 'package:maxopen_task/features/home_screen/presentation/screen/home/home_
 import 'package:maxopen_task/features/home_screen/presentation/widgets/custom_title.dart';
 import 'package:maxopen_task/features/home_screen/presentation/theme/app_color.dart';
 
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
@@ -14,21 +16,21 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: AppColor.background,
       body: SafeArea(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 16.0),
+          padding: const EdgeInsets.symmetric(horizontal: 16.0),
           child: Column(
             children: [
               CustomTitle(
-                title: 'Top Five',
+                title: AppLocalizations.of(context)!.topFive,
               ),
-              CarouselSliderDataFound(),
+              const CarouselSliderDataFound(),
               CustomTitle(
-                title: 'Latest',
+                title: AppLocalizations.of(context)!.latest,
               ),
-              HomeLatest(),
+              const HomeLatest(),
             ],
           ),
         ),

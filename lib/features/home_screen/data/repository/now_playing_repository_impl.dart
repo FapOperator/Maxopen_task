@@ -8,10 +8,10 @@ class NowPlayingRepositoryImpl implements NowPlayingRepository {
 
   NowPlayingRepositoryImpl(this._nowPlayingRemoteDataSource);
   @override
-  Future<List<Movie>> getNowPlayingMovies() async {
+  Future<List<Movie>> getNowPlayingMovies(String locale) async {
     try {
       final resultClient =
-          await _nowPlayingRemoteDataSource.getNowPlayingMovies();
+          await _nowPlayingRemoteDataSource.getNowPlayingMovies(locale);
       return resultClient;
     } on ServerException catch (error) {
       throw Exception(error);

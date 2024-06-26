@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:maxopen_task/core/common/conver_locale_string.dart';
 import 'package:maxopen_task/core/di/get_it.dart';
 import 'package:maxopen_task/features/global_widget/movie_card.dart';
 import 'package:maxopen_task/features/home_screen/domain/models/movies.dart';
@@ -10,8 +11,9 @@ class HomeLatest extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    String locale = convertLocaleString(context);
     return BlocProvider(
-      create: (context) => getIt<LatestCubit>()..getTopFiveMovie(),
+      create: (context) => getIt<LatestCubit>()..getTopFiveMovie(locale),
       child: BlocBuilder<LatestCubit, LatestState>(
         builder: (context, state) {
           if (state is LatestLoaded) {
